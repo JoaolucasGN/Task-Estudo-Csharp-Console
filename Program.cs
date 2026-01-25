@@ -1,67 +1,81 @@
 ﻿// See https://aka.ms/new-console-template for more information
-//Console.WriteLine("Hello, World!");
-
-/*string permission = "Admin|Manager";
-int level = 55;
-// O método do uso "Permission.Contains();"
-Random random = new Random();
-int number = random.Next(0,55);
-*/
-
+Console.WriteLine("Hello, World!");
 /*
-if (level > 55)
+switch (fruit)
 {
-    Console.WriteLine("Welcome, Super Admin user.");
-    permission.Contains("Admin");
-}
- if (level < 55)
-{
-    Console.WriteLine("Welcome, Admin user.");
-    permission.Contains("Admin");
-}
- if (level >= 20)
-{
-    Console.WriteLine("Contact an Admin for access.");
-    permission.Contains("Admin");
-}
- if (level < 20)
-{
-    Console.WriteLine("You do not have sufficient privileges.");
-    permission.Contains("Admin");
-}
+    case "apple":
+        Console.WriteLine("$App will display information for apple.");
+        break;
 
-Console.WriteLine(number);
+    case "banana":
+        Console.WriteLine("$$App will display information for banana");
+        break;
 
+    case "orange":
+        Console.WriteLine("$App will display information for orange");
+        break;
+}
 */
-string permission = "Admin|Manager";
-int level = 55;
-// O método do uso "Permission.Contains();"
 
-if (permission.Contains("Admin"))
+//três valores codificados: <product #>-<2-letter color code>-<size code>.
+
+// Avaliação de produto
+// Método - "sku.Split();" -> É um método que reparte os  arrays em sub arrays, string em substring
+
+
+string sku = "01-MN-L";
+
+string[] product = sku.Split('-');
+
+string type = "";
+string color = "";
+string size = "";
+// A sring sku = "01-MN-L", já esta declarada, por isso quando repartida pelo metodo
+// em substrings "type", "color", "size", já estão sendo inlcuidas na variavel product. Por isso não
+// precisa declaralas no "switch
+switch (product[0])
 {
-    if (level > 55)
-    {
-        Console.WriteLine("Welcome, Super Admin user.");
-    }
-    else if (level <= 55)
-    {
-        Console.WriteLine("Welcome, Admin user.");
-    }
+    case "01":
+        type = "Sweat shirt";
+        break;
+    case "02":
+        type = "T-shirt";
+        break;
+    case "03":
+        type = "Sweat Paints";
+        break;
+    default:
+        type = "Other";
+        break;
+
 }
-if (permission.Contains("Manager"))
+switch (product[1])
 {
-    if (level < 20)
-    {
-        Console.WriteLine("You do not have sufficient privileges.");
-    }
+    case "BL":
+        color = "Black";
+        break;
+    case "MN":
+        color = "Maroon";
+        break;
+    default:
+        color = "White";
+        break;
 
 }
+switch(product[2])
+{
+    case "S":
+        size = "Small";
+        break;
+    case "M":
+        size = "Medium";
+        break;
+    case "L":
+        size = "Large";
+        break;
+    default:
+        size = "Other";
+        break;
+}
 
-    if ((!permission.Contains("Admin")) & (!permission.Contains("Manager")))
-    {
-        Console.WriteLine("You do not have sufficient privileges!.");
-        Console.WriteLine(!permission.Contains("Admin"));
-        Console.WriteLine(!permission.Contains("Manager"));
-    }
-    
-Console.WriteLine(level);
+Console.WriteLine($"Product:{size}, color:{color}, type:{type}");
